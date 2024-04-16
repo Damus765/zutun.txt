@@ -373,6 +373,10 @@
         <source>completed:</source>
         <translation>Slutfört:</translation>
     </message>
+    <message>
+        <source>Edit</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>TaskListPage</name>

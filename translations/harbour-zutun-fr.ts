@@ -373,6 +373,10 @@
         <source>completed:</source>
         <translation>accomplies:</translation>
     </message>
+    <message>
+        <source>Edit</source>
+        <translation>Modifier</translation>
+    </message>
 </context>
 <context>
     <name>TaskListPage</name>

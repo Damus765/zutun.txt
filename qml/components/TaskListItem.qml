@@ -132,6 +132,10 @@ ListItem {
             }
         }
         MenuItem {
+            text: qsTr("Edit")
+            onClicked: edit()
+        }
+        MenuItem {
             text: qsTr("Remove")
             onClicked: remove()
         }
