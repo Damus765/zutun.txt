@@ -232,6 +232,16 @@
         <extracomment>unlimited number of notifications</extracomment>
         <translation>unbegrenzt</translation>
     </message>
+    <message>
+        <source>Show completion date.</source>
+        <extracomment>TextSwitch for showing completion date</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Show the completion date of tasks.</source>
+        <extracomment>TextSwitch for showing completion date</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>SortPage</name>

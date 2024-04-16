@@ -37,6 +37,7 @@ ApplicationWindow {
         property int fontSizeTaskList: Theme.fontSizeMedium
         property bool projectFilterLeft: false
         property bool creationDateOnAddTask: false
+        property bool showCompletionDate: true
         property bool showSearch: false
         property ConfigurationValue notificationIDs: ConfigurationValue {
             key: settings.path + "/notificationIDs"

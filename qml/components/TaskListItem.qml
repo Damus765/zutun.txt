@@ -96,14 +96,14 @@ ListItem {
                 font.pixelSize: parent.fontSize
             }
             Label {
-                visible: model.completionDate !== ""
+                visible: model.completionDate !== "" && settings.showCompletionDate
                 text: qsTr("completed:")
                 font.pixelSize: parent.fontSize
                 color: Theme.highlightColor
             }
             Label {
                 //id: compLbl
-                visible: model.completionDate !== ""
+                visible: model.completionDate !== "" && settings.showCompletionDate
                 text: JS.tools.isoToDateString(model.completionDate, Locale.NarrowFormat)
                 font.pixelSize: parent.fontSize
             }

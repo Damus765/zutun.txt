@@ -149,6 +149,14 @@ Page {
                 checked: settings.creationDateOnAddTask
                 onClicked: settings.creationDateOnAddTask = checked
             }
+            TextSwitch {
+                //: TextSwitch for showing completion date
+                text: qsTr("Show completion date.")
+                //: TextSwitch for showing completion date
+                description: qsTr("Show the completion date of tasks.")
+                checked: settings.showCompletionDate
+                onClicked: settings.showCompletionDate = checked
+            }
             SectionHeader {
                 //: Section Header for the notification section in settings page
                 text: qsTr("Notifications")
