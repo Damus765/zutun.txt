@@ -9,16 +9,20 @@ import "../tdt/todotxt.js" as JS
 ListItem {
     id: listItem
 
-    signal editItem()
-    onEditItem: {
-        //ListView.view.editTaskc(model.index, model.fullTxt)
+    signal resortItem()
+
+    function onChecked(isChecked) {
+        taskListModel.setTaskProperty(model.index, JS.baseFeatures.done, isChecked)
+        resortItem()
+    }
+
+    function edit() {
         var editDialog = pageStack.push(Qt.resolvedUrl("../pages/TaskEditPage.qml"),
                                         {taskIndex: model.index, text: model.fullTxt})
         editDialog.accepted.connect(function() {
             resortItem()
         })
     }
-    signal resortItem()
 
     function remove() {
         remorseAction(qsTr("Deleting"), function() {
@@ -28,7 +32,7 @@ ListItem {
 
     width: ListView.view.width
     contentHeight: (Math.max(col.height, Theme.itemSizeExtraSmall) + Theme.paddingSmall)// * visible
-    onClicked: editItem()
+    onClicked: onChecked(!doneSw.checked)
     //visible: taskListModel.filters.visibility(model)
     //Component.onCompleted: console.debug(model)
 
@@ -44,10 +48,7 @@ ListItem {
                 height: parent.height
                 //automaticCheck: true
                 checked: model.done
-                onClicked: {
-                    taskListModel.setTaskProperty(model.index, JS.baseFeatures.done, checked)
-                    resortItem()
-                }
+                onClicked: onChecked(checked)
             }
             Label {
                 id:lbl
