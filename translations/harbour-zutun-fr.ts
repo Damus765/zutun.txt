@@ -1,4 +1,6 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="fr" version="2.1">
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE TS>
+<TS version="2.1" language="fr">
 <context>
     <name>About</name>
     <message>
@@ -166,7 +168,7 @@
     <message>
         <source>Auto add creation date.</source>
         <extracomment>TextSwitch for adding creation date</extracomment>
-        <translation>Ajout automatique date de création</translation>
+        <translation>Ajout automatique date de création.</translation>
     </message>
     <message>
         <source>Recent files</source>
@@ -218,7 +220,7 @@
     <message>
         <source>Show tasks due within</source>
         <extracomment>ComboBox limt tasks within range of time</extracomment>
-        <translation>Afficher tâches à échéance:</translation>
+        <translation>Afficher tâches à échéance</translation>
     </message>
     <message>
         <source>Max count of notifications</source>
@@ -403,15 +405,15 @@
     <message>
         <source>Show</source>
         <extracomment>PushUp menu: show / hide completed tasks</extracomment>
-        <translation>Afficher </translation>
+        <translation>Afficher</translation>
     </message>
     <message>
         <source>Hide</source>
-        <translation>Masquer </translation>
+        <translation>Masquer</translation>
     </message>
     <message>
         <source> completed tasks</source>
-        <translation>tâches accomplies</translation>
+        <translation> tâches accomplies</translation>
     </message>
     <message>
         <source>Tasklist</source>
@@ -461,7 +463,7 @@
         <translation>Erreur lors de la lecture du fichier</translation>
     </message>
     <message>
-        <source>File doesn't exist.
+        <source>File doesn&apos;t exist.
  Pull down to create it.</source>
         <translation>Le fichier n&apos;existe pas.
 Tirer pour le créer.</translation>

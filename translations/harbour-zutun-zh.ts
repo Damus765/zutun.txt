@@ -1,4 +1,6 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="zh" version="2.1">
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE TS>
+<TS version="2.1" language="zh">
 <context>
     <name>About</name>
     <message>
@@ -461,7 +463,7 @@
         <translation>文件读取错误</translation>
     </message>
     <message>
-        <source>File doesn't exist.
+        <source>File doesn&apos;t exist.
  Pull down to create it.</source>
         <translation>文件不存在。
 下拉以创建。</translation>

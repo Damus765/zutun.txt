@@ -1,4 +1,6 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="sv" version="2.1">
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE TS>
+<TS version="2.1" language="sv">
 <context>
     <name>About</name>
     <message>
@@ -461,7 +463,7 @@
         <translation>Läsfel</translation>
     </message>
     <message>
-        <source>File doesn't exist.
+        <source>File doesn&apos;t exist.
  Pull down to create it.</source>
         <translation>Filen finns inte.
  Dra neråt för att skapa den.</translation>
