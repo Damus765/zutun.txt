@@ -72,6 +72,14 @@ ListModel {
         taskListDataChanged("add task")
     }
 
+    function uncheckAllTasks() {
+        for (var index = 0; index < count; index++) {
+            var txt = JS.baseFeatures.modifyLine(get(index).fullTxt, JS.baseFeatures.done, false)
+            set(index, JS.tools.lineToJSON(txt))
+        }
+        taskListDataChanged("uncheck all tasks")
+    }
+
     /*
     priority, incOrDec: true..inc, false..dec
     returns altered priority */

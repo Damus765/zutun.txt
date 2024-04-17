@@ -435,6 +435,11 @@
         <extracomment>PullDown menu: clear filters</extracomment>
         <translation>Filter entfernen</translation>
     </message>
+    <message>
+        <source>Uncheck all tasks</source>
+        <extracomment>PushUp menu: uncheck all tasks</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>TextSelect</name>

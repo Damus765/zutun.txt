@@ -53,6 +53,13 @@ Page {
                 text: (filterSettings.hideDone ? qsTr("Show") : qsTr("Hide")) + qsTr(" completed tasks")
                 onClicked: filterSettings.hideDone = !filterSettings.hideDone
             }
+            MenuItem {
+                //: PushUp menu: uncheck all tasks
+                text: qsTr("Uncheck all tasks")
+                onClicked: {
+                    taskListModel.uncheckAllTasks()
+                }
+            }
         }
 
         header: Item {
