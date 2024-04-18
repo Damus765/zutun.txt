@@ -39,6 +39,13 @@ Download the rpm from [openrepos](https://openrepos.net/content/fooxl/zutuntxt) 
   
 ## Changes
 
+### 2.3.0
+  - setting to hide completion date
+  - check task when clicking on row
+  - menu item to edit task
+  - pushup menu to uncheck all tasks
+  - option to disable sorting
+
 ### 2.2.2
   - update languages: fr, zh
 
