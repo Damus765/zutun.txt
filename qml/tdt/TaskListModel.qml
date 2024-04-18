@@ -30,7 +30,6 @@ ListModel {
             tl.push(item.fullTxt)
             if (filters.visibility(item)) vl.push(item.fullTxt)
         }
-        tl.sort(); vl.sort()
         textList = tl; visibleTextList = vl
 
         if (reason !== "read file") saveTodoTxtFile(textList.join("\n"))
@@ -42,7 +41,6 @@ ListModel {
             var item = get(i)
             if (filters.visibility(item)) vl.push(item.fullTxt)
         }
-        vl.sort()
         visibleTextList = vl
     }
 
@@ -100,6 +98,7 @@ ListModel {
 
     //sorts listmodel due to compareFunc
     function listModelSort(lessThanFunc) {
+        if (!sorting.shouldSort()) return
         var indexes = new Array(count)
         for (var i = 0; i < count; i++) indexes[i] = i
         //console.debug(JSON.stringify(indexes))

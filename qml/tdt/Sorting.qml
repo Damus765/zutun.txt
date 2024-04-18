@@ -14,78 +14,96 @@ QtObject {
 
     //group by: 0..none, 1..projects, 2..contexts
     property int groupBy: 0
-    onGroupByChanged: {
-        sortingChanged()
-    }
+    onGroupByChanged: sortingChanged()
 
     readonly property var sectionProperty: {
         return ["none", "projects", "contexts"][groupBy]
     }
 
-    property string sortText: qsTr("Sorted by %1").arg(functionList[order][0] + ", " + (asc ? qsTr("asc") : qsTr("desc")))
-    property string groupText: (groupBy > 0 ? qsTr("Grouped by %1, ").arg(groupFunctionList[groupBy][0]) : "")
+    property string sortText: qsTr("Sorted by %1").arg(functionList[order].name + ", " + (asc ? qsTr("asc") : qsTr("desc")))
+    property string groupText: (groupBy > 0 ? qsTr("Grouped by %1, ").arg(groupFunctionList[groupBy].name) : "")
 
     //returns a function, which compares two items
-    property var lessThanFunc: groupFunctionList[groupBy][1]
+    property var lessThanFunc: groupFunctionList[groupBy].lessThanFunc
+    property var shouldSort: function () { return functionList[order].shouldSort }
 
     //list of functions for sorting; *left* and *right* are the items to compare
     property var functionList: [
-        //: SortPage, sorting by: Natural
-        [qsTr("Natural"), function(left, right) {
-            //TODO ä wird nach x gereiht! locale?
-            return (left.fullTxt === right.fullTxt ?
-                        false : (left.fullTxt < right.fullTxt) ^ !asc
-                    )
-        }],
-        //: SortPage, sorting by: Creation date
-        [qsTr("Creation Date"), function(left, right) {
-            return (left.creationDate === right.creationDate ?
-                        functionList[0][1](left, right) :
-                        (left.creationDate < right.creationDate) ^ !asc
-                    )
-        }],
-        //: SortPage, sorting by: Due date
-        [qsTr("Due date"), function(left, right) {
-            return (left.due === right.due ?
-                        functionList[0][1](left, right) :
-                        (left.due < right.due) ^ !asc
-                    )
-        }],
-        //: SortPage, sorting by: Subject
-        [qsTr("Subject"), function(left, right) {
-            return (left.subject === right.subject ?
-                        functionList[0][1](left, right) :
-                        (left.subject < right.subject) ^ !asc
-                    )
-        }]
+        {
+            //: SortPage, sorting by: None
+            name: qsTr("None"),
+            shouldSort: false,
+            lessThanFunc: null
+        },
+        {
+            //: SortPage, sorting by: Natural
+            name: qsTr("Natural"),
+            shouldSort: true,
+            lessThanFunc: function(left, right) {
+                //TODO ä wird nach x gereiht! locale?
+                return left.fullTxt === right.fullTxt
+                    ? false
+                    : (left.fullTxt < right.fullTxt) ^ !asc
+            }
+        },
+        {
+            //: SortPage, sorting by: Creation date
+            name: qsTr("Creation Date"),
+            shouldSort: true,
+            lessThanFunc: function(left, right) {
+                return left.creationDate === right.creationDate
+                    ? functionList[1].lessThanFunc(left, right)
+                    : (left.creationDate < right.creationDate) ^ !asc
+            }
+        },
+        {
+            //: SortPage, sorting by: Due date
+            name: qsTr("Due date"),
+            shouldSort: true,
+            lessThanFunc: function(left, right) {
+                return left.due === right.due
+                    ? functionList[1].lessThanFunc(left, right)
+                    : (left.due < right.due) ^ !asc
+            }
+        },
+        {
+            //: SortPage, sorting by: Subject
+            name: qsTr("Subject"),
+            shouldSort: true,
+            lessThanFunc: function(left, right) {
+                return left.subject === right.subject
+                    ? functionList[1].lessThanFunc(left, right)
+                    : (left.subject < right.subject) ^ !asc
+            }
+        }
     ]
 
     //0..Name, 1..lessThanFunc, 2..return list of groups
     property var groupFunctionList: [
-        //: SortPage, group by: None
-        [qsTr("None"),
-         function(left, right) {
-             return functionList[order][1](left, right)
-         },
-         function(line) {
-             return []
-         }
-        ]
-        //: SortPage, group by: projects
-        ,[qsTr("Projects"),
-          function(left, right) {
-              return (left.projects === right.projects ?
-                          functionList[order][1](left, right) :
-                          (left.projects < right.projects) ^ !asc
-                      )
-          }]
-        //: SortPage, group by: contexts
-        ,[qsTr("Contexts"),
-          function(left, right) {
-              return (left.contexts === right.contexts ?
-                          functionList[order][1](left, right) :
-                          (left.contexts < right.contexts) ^ !asc
-                      )
-          }]
+        {
+            //: SortPage, group by: None
+            name: qsTr("None"),
+            lessThanFunc: function(left, right) {
+                return functionList[order].lessThanFunc(left, right)
+            },
+        },
+        {
+            //: SortPage, group by: projects
+            name: qsTr("Projects"),
+            lessThanFunc: function(left, right) {
+                return left.projects === right.projects
+                    ? functionList[order].lessThanFunc(left, right)
+                    : (left.projects < right.projects) ^ !asc
+            }
+        },
+        {
+            //: SortPage, group by: contexts
+            name: qsTr("Contexts"),
+            lessThanFunc: function(left, right) {
+                return left.contexts === right.contexts
+                    ? functionList[order].lessThanFunc(left, right)
+                    : (left.contexts < right.contexts) ^ !asc
+            }
+        }
     ]
 }

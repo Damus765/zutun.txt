@@ -54,7 +54,7 @@ Page {
 
                 delegate: TextSwitch {
                     checked: sortSettings.order === model.index
-                    text: rep.list[model.index][0]
+                    text: rep.list[model.index].name
                     automaticCheck: false
                     onClicked:{
                         sortSettings.order = model.index
@@ -74,7 +74,7 @@ Page {
 
                 delegate: TextSwitch {
                     checked: sortSettings.grouping === model.index
-                    text: groupRep.list[model.index][0]
+                    text: groupRep.list[model.index].name
                     automaticCheck: false
                     onClicked:{
                         sortSettings.grouping = model.index

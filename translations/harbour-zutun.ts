@@ -319,7 +319,9 @@
     </message>
     <message>
         <source>None</source>
-        <extracomment>SortPage, group by: None</extracomment>
+        <extracomment>SortPage, sorting by: None
+----------
+SortPage, group by: None</extracomment>
         <translation type="unfinished">None</translation>
     </message>
     <message>

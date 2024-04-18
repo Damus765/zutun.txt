@@ -150,6 +150,7 @@ ApplicationWindow {
         model: taskListModel
         visibilityFunc: taskListModel.filters.visibility
         lessThanFunc: taskListModel.sorting.lessThanFunc
+        shouldSort: taskListModel.sorting.shouldSort
         delegate: Delegate {}
     }
 

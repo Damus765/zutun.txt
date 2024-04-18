@@ -8,6 +8,7 @@ DelegateModel {
     id: vm
 
     property var lessThanFunc: function(a,b){return true}
+    property var shouldSort: function(){return false}
     onLessThanFuncChanged: update()
     property var visibilityFunc: function(item){return true}
     onVisibilityFuncChanged: update()
@@ -21,10 +22,10 @@ DelegateModel {
     function insertPosition(item) {
         var lower = 0
         var upper = items.count
+        if (!shouldSort()) return item.itemsIndex
         while (lower < upper) {
             var middle = Math.floor(lower + (upper - lower)/2)
-            var result =
-                    lessThanFunc(item.model, items.get(middle).model)
+            var result = lessThanFunc(item.model, items.get(middle).model)
             if (result) {
                 upper = middle
             } else {
